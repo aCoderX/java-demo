@@ -8,6 +8,7 @@
   <modules>
     <module>csv</module>
     <module>commons</module>
+    <module>jdk</module>
   </modules>
   <packaging>pom</packaging>
 
