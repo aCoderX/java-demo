@@ -8,4 +8,7 @@ import com.acoderx.demo.frame.domain.User;
 public interface UserDao {
     User findById(Integer id);
     void updateMoneyById(Integer id,long money);
+    int count();
+    void insert(User user);
+    void updateAllUserMoney(long money);
 }

@@ -4,10 +4,7 @@ import com.acoderx.demo.frame.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -41,5 +38,24 @@ public class UserDaoImpl implements UserDao {
             p.setLong(1,money);
             p.setInt(2,id);
         });
+    }
+
+    @Override
+    public int count() {
+        return jdbcTemplate.queryForObject("select count(*) from `user` where `money`>0", Integer.class);
+    }
+
+    @Override
+    public void insert(User user) {
+        jdbcTemplate.update("insert into user(`name`,`age`,`money`) values(?,?,?)", p -> {
+            p.setString(1,user.getName());
+            p.setInt(2,user.getAge());
+            p.setLong(3,user.getMoney());
+        });
+    }
+
+    @Override
+    public void updateAllUserMoney(long money) {
+        jdbcTemplate.update("UPDATE `user` SET `money`= "+money);
     }
 }

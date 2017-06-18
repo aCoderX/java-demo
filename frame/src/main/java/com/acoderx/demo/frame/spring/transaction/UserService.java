@@ -1,8 +1,5 @@
 package com.acoderx.demo.frame.spring.transaction;
 
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-
 /**
  * Created by xudi on 2017/6/17.
  */
@@ -40,6 +37,25 @@ public interface UserService {
 
 
     //事务的隔离级别
+    /*
+    * 最低级别，会发生脏读、重复读、幻读
+    * */
+    void testIsolation_READUNCOMMITED();
+
+    /*
+    * 可防止脏读，但不能防止重复读和幻读 oracle、sqlserver的默认级别
+    * */
+    void testIsolation_READCOMMITED();
+
+    /*
+    * 防止脏读、重复读，但是防止保证幻读 mysql的默认级别
+    * */
+    void testIsolation_REPEATABLEREAD();
+
+    /*
+    * 最严格，但性能消耗最大
+    * */
+    void testIsolation_SERIALIZABLE();
 
     //事务的只读
 

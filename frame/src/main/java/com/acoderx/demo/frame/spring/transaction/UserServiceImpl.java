@@ -90,6 +90,63 @@ public class UserServiceImpl implements UserService {
         }*/
     }
 
+    /*
+    * 脏读：isolationShowResult读取到未提交事务的数据库变化
+    * */
+    @Override
+    public void testIsolation_READUNCOMMITED() {
+        try {
+            Thread t = new Thread(()-> baseMethed.isolationAwithSleep());
+            t.start();
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        baseMethed.isolationShowResult();
+    }
+
+    /*
+    * 重复读：isolationBwithSleep读取的两次结果不一样
+    * */
+    @Override
+    public void testIsolation_READCOMMITED() {
+        try {
+            Thread t = new Thread(()-> baseMethed.isolationBwithSleep());
+            t.start();
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        baseMethed.isolationB();
+    }
+
+    /*
+    * 幻读：isolationCwithSleep成功进入判断设置金额
+    * */
+    @Override
+    public void testIsolation_REPEATABLEREAD() {
+        try {
+            Thread t = new Thread(()-> baseMethed.isolationCwithSleep());
+            t.start();
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        baseMethed.isolationC();
+    }
+
+    @Override
+    public void testIsolation_SERIALIZABLE() {
+        try {
+            Thread t = new Thread(()-> baseMethed.isolationDwithSleep());
+            t.start();
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        baseMethed.isolationC();
+    }
+
     @Override
     public void showResult() {
         User user = userDao.findById(1);

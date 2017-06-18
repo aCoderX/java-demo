@@ -24,7 +24,7 @@
                   value="com.mysql.jdbc.Driver">
         </property>
         <property name="url"
-                  value="jdbc:mysql://${datasource.mysql.host}:${datasource.mysql.port}/${datasource.mysql.schema}">
+                  value="jdbc:mysql://${datasource.mysql.host}:${datasource.mysql.port}/${datasource.mysql.schema}?useUnicode=true&amp;characterEncoding=UTF-8">
         </property>
         <property name="username"
                   value="${datasource.mysql.username}">
