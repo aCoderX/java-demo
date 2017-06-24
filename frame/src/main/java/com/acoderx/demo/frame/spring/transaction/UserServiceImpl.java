@@ -121,7 +121,8 @@ public class UserServiceImpl implements UserService {
     }
 
     /*
-    * 幻读：isolationCwithSleep成功进入判断设置金额
+    * 如果发生幻读：isolationCwithSleep成功进入判断设置金额
+    * 未发生幻读：
     * */
     @Override
     public void testIsolation_REPEATABLEREAD() {

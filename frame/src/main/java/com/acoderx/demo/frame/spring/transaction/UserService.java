@@ -48,7 +48,7 @@ public interface UserService {
     void testIsolation_READCOMMITED();
 
     /*
-    * 防止脏读、重复读，但是防止保证幻读 mysql的默认级别
+    * 防止脏读、重复读，但是防止保证幻读 mysql的默认级别，但是由于mysql实现了mvcc，所以也可以防止幻读
     * */
     void testIsolation_REPEATABLEREAD();
 
@@ -57,7 +57,7 @@ public interface UserService {
     * */
     void testIsolation_SERIALIZABLE();
 
-    //事务的只读
+    //事务的只读readonly,会根据情况进行调优，如果在readonly中写数据，会抛出异常
 
     //事务的超时
 
