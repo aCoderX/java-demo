@@ -20,9 +20,8 @@ public class Main {
 //        userService.testPropagation_NESTED();
 //        userService.testIsolation_READUNCOMMITED();
 //        userService.testIsolation_READCOMMITED();
-//        userService.testIsolation_REPEATABLEREAD();**
-//        userService.testIsolation_SERIALIZABLE();**
-
+//        userService.testIsolation_REPEATABLEREAD();
+        userService.testIsolation_SERIALIZABLE();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

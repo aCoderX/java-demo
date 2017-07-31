@@ -193,8 +193,10 @@ public class BaseMethed {
     /*
     * 增加条数测试幻读
     * */
-    @Transactional(isolation = Isolation.REPEATABLE_READ)
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public void isolationC(){
+        System.out.println("事务2查询id1的数据");
+        System.out.println(userDao.findById(1));
         User user = new User();
         user.setName("测试用户");
         user.setAge(19);

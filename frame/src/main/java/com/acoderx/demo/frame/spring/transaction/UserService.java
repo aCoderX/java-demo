@@ -53,9 +53,12 @@ public interface UserService {
     void testIsolation_REPEATABLEREAD();
 
     /*
-    * 最严格，但性能消耗最大
+    * 最严格，但性能消耗最大  可以原生的保证更新丢失，但是性能地下
     * */
     void testIsolation_SERIALIZABLE();
+
+
+    //TODO 更新丢失  悲观锁for updape/乐观锁
 
     //事务的只读readonly,会根据情况进行调优，如果在readonly中写数据，会抛出异常
 
