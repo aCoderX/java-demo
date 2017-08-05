@@ -59,6 +59,11 @@ public interface UserService {
 
 
     //TODO 更新丢失  悲观锁for updape/乐观锁
+    void testUpdateLose1();//回滚造成更新丢失
+    void testUpdateLose2();//覆盖更新丢失
+    void testUpdateLose_SERIALIZABLE();//串行化解决
+    void testUpdateLose_LOCK1();//悲观锁
+    void testUpdateLose_LOCK2();//乐观锁
 
     //事务的只读readonly,会根据情况进行调优，如果在readonly中写数据，会抛出异常
 

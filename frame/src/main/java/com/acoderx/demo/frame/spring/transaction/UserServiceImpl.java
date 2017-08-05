@@ -148,6 +148,44 @@ public class UserServiceImpl implements UserService {
         baseMethed.isolationC();
     }
 
+    /**
+     * methodA2000的修改会被回滚覆盖
+     * TODO ？？？？
+     * FIXME
+     * */
+    @Override
+    public void testUpdateLose1() {
+        try {
+            Thread t = new Thread(() -> baseMethed.updateLose1());
+            t.start();
+            Thread.sleep(1000);
+            System.out.println("ssss");
+            baseMethed.updateLose2();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void testUpdateLose2() {
+
+    }
+
+    @Override
+    public void testUpdateLose_SERIALIZABLE() {
+
+    }
+
+    @Override
+    public void testUpdateLose_LOCK1() {
+
+    }
+
+    @Override
+    public void testUpdateLose_LOCK2() {
+
+    }
+
     @Override
     public void showResult() {
         User user = userDao.findById(1);

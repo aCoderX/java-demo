@@ -222,4 +222,32 @@ public class BaseMethed {
         System.out.println("金额大于0的用户个数"+userDao.count());
         System.out.println("事务1结束");
     }
+
+    /**
+    * 开启一个事务修改值为100，2秒后抛出异常回滚
+    * */
+    @Transactional
+    public void updateLose1(){
+        userDao.updateMoneyById(1,10000);
+        System.out.println("事务1设置值为100");
+        try {
+            System.out.println("事务1睡眠");
+            Thread.sleep(2000);
+            System.out.println("事务1睡眠结束");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("事务1结束");
+    }
+
+    @Transactional
+    public void updateLose2() {
+        System.out.println("事务2开始");
+        System.out.println(userDao.findById(1));
+        userDao.updateMoneyById(1, 4000);
+        User user = userDao.findById(1);
+        System.out.println(user.getMoney());
+        System.out.println("事务2结束");
+        throw new RuntimeException();
+    }
 }

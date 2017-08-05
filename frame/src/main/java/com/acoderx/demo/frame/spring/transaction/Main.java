@@ -21,7 +21,8 @@ public class Main {
 //        userService.testIsolation_READUNCOMMITED();
 //        userService.testIsolation_READCOMMITED();
 //        userService.testIsolation_REPEATABLEREAD();
-        userService.testIsolation_SERIALIZABLE();
+//        userService.testIsolation_SERIALIZABLE();
+        userService.testUpdateLose1();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
