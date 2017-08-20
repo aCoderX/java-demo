@@ -17,9 +17,9 @@ public class JschUtil {
 
             jsch.addIdentity(rsa.getAbsolutePath(),"");
 
-//            String host = "xudi@localhost";
+            String host = "xudi@localhost";
 //            String host = "root@139.199.74.141";
-            String host = "ubuntu@54.64.3.35";
+//            String host = "ubuntu@54.64.3.35";
 
             String user = host.substring(0, host.indexOf('@'));
             host = host.substring(host.indexOf('@') + 1);
