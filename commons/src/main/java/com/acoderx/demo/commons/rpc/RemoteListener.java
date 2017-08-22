@@ -8,11 +8,13 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 
 /**
  * Created by xudi on 2017/8/5.
@@ -94,16 +96,30 @@ public class RemoteListener {
         String result = "";
         String key = StringUtils.toString(param.get("object"));
         String method = StringUtils.toString(param.get("method"));
-        List<String> args = (List<String>) param.get("args");
+        List<String> argTypes = (List<String>) param.get("argTypes");
+        List args = (List) param.get("args");
         Class clazz = MAP.get(key);
+        Class[] classes = new Class[argTypes.size()];
+
+        for (int i=0;i<classes.length;i++) {
+            classes[i] = getParamType(argTypes.get(i));
+        }
+
         try {
-            //TODO 参数类型也需要传递
-            Method m = clazz.getMethod(method,String.class);
+            Method m = clazz.getMethod(method, classes);
             result = (String) m.invoke(clazz.newInstance(), args.toArray());
         } catch (NoSuchMethodException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
             e.printStackTrace();
         }
         return result;
+    }
+
+    private static Class getParamType(String s) {
+        switch (s){
+            case "string":
+                return String.class;
+        }
+        return null;
     }
 
 

@@ -8,9 +8,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.net.InetSocketAddress;
 import java.net.Socket;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by xudi on 2017/8/5.
@@ -37,14 +35,21 @@ public class RemoteProxyHandle implements InvocationHandler {
 
         map.put("object",targetAddress.getObject());
         map.put("method",method.getName());
-        map.put("args", Arrays.asList(args));
+        List<String> argTypes = new ArrayList<>();
+        List argsInfo = new ArrayList();
+        for (Object o : args) {
+            argTypes.add(getParamType(o.getClass().getTypeName()));
+            argsInfo.add(o);
+        }
+        map.put("args", argsInfo);
+        map.put("argTypes", argTypes);
 
         System.out.println("客户端发送：" + JsonUtils.toString(map));
 //        writer.write(JsonUtils.toString(map));
         writer.println(JsonUtils.toString(map));
         writer.flush();
 
-        /*BufferedReader reader = new BufferedReader(new InputStreamReader(new BufferedInputStream(socket.getInputStream())));
+        /*BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         char[] b = new char[512];
         StringBuilder builder = new StringBuilder();
         System.out.println("等待返回数据");
@@ -56,6 +61,15 @@ public class RemoteProxyHandle implements InvocationHandler {
 
         //得到结果，返回结果
 //        return builder.toString();
+        return "";
+    }
+
+    private String getParamType(String s) {
+        switch (s){
+            case "string":
+            case "java.lang.String":
+                return "string";
+        }
         return "";
     }
 }

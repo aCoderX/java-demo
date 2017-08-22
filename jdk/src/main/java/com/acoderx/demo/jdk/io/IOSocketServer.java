@@ -30,9 +30,11 @@ public class IOSocketServer {
                         reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         String line;
                         System.out.println("准备读数据");
+                        StringBuilder sb = new StringBuilder();
                         while((line = reader.readLine())!=null){
                             System.out.println(line);
-                            printWriter.println(line);
+                            sb.append(line);
+                            printWriter.println(sb.toString());
                             printWriter.flush();
                         }
                         System.out.println("读完数据");
