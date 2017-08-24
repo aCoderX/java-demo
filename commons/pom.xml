@@ -22,6 +22,7 @@
         <version.hessian>4.0.38</version.hessian>
         <version.jcraft>0.1.54</version.jcraft>
         <version.jgit>4.8.0.201706111038-r</version.jgit>
+        <version.mavenmodel>3.5.0</version.mavenmodel>
     </properties>
 
     <dependencies>
@@ -60,5 +61,21 @@
             <artifactId>org.eclipse.jgit</artifactId>
             <version>${version.jgit}</version>
         </dependency>
+
+        <!--从pom中读取属性-->
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-model</artifactId>
+            <version>${version.mavenmodel}</version>
+        </dependency>
     </dependencies>
+    <!--在打包时将maven变量配置进配置文件-->
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 </project>

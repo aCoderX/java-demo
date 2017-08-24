@@ -9,6 +9,7 @@ import java.lang.reflect.Method;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -25,7 +26,6 @@ public class RemoteListener {
     private static final Map<String, Class> MAP = new ConcurrentHashMap<>();
     private static ExecutorService executorService = Executors.newCachedThreadPool();
 
-    //TODO 安全性 auth
     /**
      * 开始监听
      */
@@ -45,16 +45,17 @@ public class RemoteListener {
                             char[] chars = new char[512];
                             String line="";
                             System.out.println("服务端开始接受数据");
-                            while((line = reader.readLine())!=null){
-//                                while (reader.read(chars, 0, 512) != -1) {
-                                System.out.println(line);
-                                sb.append(line);
+//                            while((line = reader.readLine())!=null){
+                            while (reader.read(chars, 0, 512) != -1) {
+                                System.out.println(new String(chars));
+                                sb.append(new String(chars));
                             }
                             System.out.println("接受完毕");
                             Map<String, Object> param = JsonUtils.toMap(sb.toString());
                             String result = invoke(param);
                             writer.write(result);
                             writer.flush();
+                            socket.shutdownOutput();
                         } catch (IOException e) {
                             e.printStackTrace();
                         } finally {

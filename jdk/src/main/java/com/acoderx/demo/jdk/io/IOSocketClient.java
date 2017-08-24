@@ -16,7 +16,11 @@ public class IOSocketClient {
         socket.connect(new InetSocketAddress("localhost",9999));
         PrintWriter writer = new PrintWriter(socket.getOutputStream());
         writer.println("helloWorld!!");
+        writer.println("helloWorld!!");
+        writer.println("helloWorld!!");
+        writer.println("helloWorld!!");
         writer.flush();
+        socket.shutdownOutput();
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         System.out.println("服务器返回:"+reader.readLine());

@@ -27,8 +27,8 @@ public class RemoteProxyHandle implements InvocationHandler {
         //根据address连接远程服务器
         Socket socket = new Socket();
         socket.connect(new InetSocketAddress(targetAddress.getHost(), targetAddress.getPort()));
-//        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-        PrintWriter writer = new PrintWriter(socket.getOutputStream());
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+//        PrintWriter writer = new PrintWriter(socket.getOutputStream());
 
         //传递调用的对象，方法，参数
         Map<String, Object> map = new HashMap<>();
@@ -45,18 +45,20 @@ public class RemoteProxyHandle implements InvocationHandler {
         map.put("argTypes", argTypes);
 
         System.out.println("客户端发送：" + JsonUtils.toString(map));
-//        writer.write(JsonUtils.toString(map));
-        writer.println(JsonUtils.toString(map));
+        writer.write(JsonUtils.toString(map));
+//        writer.println(JsonUtils.toString(map));
         writer.flush();
+        //TODO socket结束符
+        socket.shutdownOutput();
 
-        /*BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         char[] b = new char[512];
         StringBuilder builder = new StringBuilder();
         System.out.println("等待返回数据");
         while(reader.read(b,0,512)!=-1){
             System.out.println(b);
             builder.append(b);
-        }*/
+        }
         socket.close();
 
         //得到结果，返回结果

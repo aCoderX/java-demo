@@ -34,9 +34,10 @@ public class IOSocketServer {
                         while((line = reader.readLine())!=null){
                             System.out.println(line);
                             sb.append(line);
-                            printWriter.println(sb.toString());
-                            printWriter.flush();
                         }
+                        printWriter.println(sb.toString());
+                        printWriter.flush();
+                        socket.shutdownOutput();
                         System.out.println("读完数据");
                         endTime = System.currentTimeMillis();
                         System.out.println("花费"+(endTime-startTime)+"ms");
