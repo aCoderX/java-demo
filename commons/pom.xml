@@ -23,6 +23,7 @@
         <version.jcraft>0.1.54</version.jcraft>
         <version.jgit>4.8.0.201706111038-r</version.jgit>
         <version.mavenmodel>3.5.0</version.mavenmodel>
+        <version.guava>23.0</version.guava>
     </properties>
 
     <dependencies>
@@ -60,6 +61,11 @@
             <groupId>org.eclipse.jgit</groupId>
             <artifactId>org.eclipse.jgit</artifactId>
             <version>${version.jgit}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${version.guava}</version>
         </dependency>
 
         <!--从pom中读取属性-->

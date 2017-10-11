@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 public class CmdUtil {
     private static Runtime runtime = Runtime.getRuntime();
     public static void main(String[] args){
-        execShell("cd ");
+        execShell("mvn clean package");
     }
 
     public static void execShell(String command){
@@ -18,14 +18,20 @@ public class CmdUtil {
         BufferedReader br = null;
         try {
             ps = runtime.exec(command);
+//            ps = runtime.exec(new String[] { "/bin/sh","-c", command});
+            if(ps.waitFor() == 0){
+                System.out.println("success");
+            }else {
+                System.out.println("fail"+ps.waitFor());
+            }
             br = new BufferedReader(new InputStreamReader(ps.getInputStream()));
             String line;
             while ((line = br.readLine())!=null){
                 System.out.println(line);
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 br.close();
             } catch (IOException e) {

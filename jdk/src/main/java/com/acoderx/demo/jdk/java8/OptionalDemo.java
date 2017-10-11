@@ -14,5 +14,15 @@ public class OptionalDemo {
         optional.ifPresent(System.out::println);
         //如果为空则返回参数中的字符串
         System.out.println(optional.orElse("is null"));
+
+        //如果满足Predicate则返回，否则返回空
+        optional = Optional.of("hahah");
+        optional = optional.filter(a -> a.equals("ppp"));
+        System.out.println(optional.isPresent());
+
+        //如果function的结果非空 则返回结果 否则返回空
+        optional = Optional.of("hahah");
+        optional = optional.map((f) -> null);
+        System.out.println(optional.isPresent());
     }
 }
