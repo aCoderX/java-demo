@@ -1,4 +1,4 @@
-package com.acoderx.demo.jdk.java8;
+package com.acoderx.demo.jdk.java8.function;
 
 import java.util.function.Predicate;
 

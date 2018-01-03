@@ -1,4 +1,4 @@
-package com.acoderx.demo.jdk.java8;
+package com.acoderx.demo.jdk.java8.function;
 
 /**
  * Created by xudi on 17-6-6.
