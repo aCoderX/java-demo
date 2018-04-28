@@ -24,6 +24,10 @@
         <version.jgit>4.8.0.201706111038-r</version.jgit>
         <version.mavenmodel>3.5.0</version.mavenmodel>
         <version.guava>23.0</version.guava>
+        <version.metrics>4.0.2</version.metrics>
+        <version.druid>1.1.9</version.druid>
+        <version.mysql.jdbc>6.0.6</version.mysql.jdbc>
+        <version.mysql.c3p0>0.9.5.2</version.mysql.c3p0>
     </properties>
 
     <dependencies>
@@ -73,12 +77,35 @@
             <artifactId>guava</artifactId>
             <version>${version.guava}</version>
         </dependency>
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-core</artifactId>
+            <version>${version.metrics}</version>
+        </dependency>
 
         <!--从pom中读取属性-->
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-model</artifactId>
             <version>${version.mavenmodel}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${version.druid}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${version.mysql.jdbc}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>${version.mysql.c3p0}</version>
         </dependency>
     </dependencies>
     <!--在打包时将maven变量配置进配置文件-->
