@@ -28,6 +28,7 @@
         <version.druid>1.1.9</version.druid>
         <version.mysql.jdbc>6.0.6</version.mysql.jdbc>
         <version.mysql.c3p0>0.9.5.2</version.mysql.c3p0>
+        <version.netty>4.1.25.Final</version.netty>
     </properties>
 
     <dependencies>
@@ -106,6 +107,12 @@
             <groupId>com.mchange</groupId>
             <artifactId>c3p0</artifactId>
             <version>${version.mysql.c3p0}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>${version.netty}</version>
         </dependency>
     </dependencies>
     <!--在打包时将maven变量配置进配置文件-->
