@@ -21,7 +21,7 @@ public class ForkJoinDemo {
     }
 }
 class PrintTask extends RecursiveAction{
-    private static final int THRESHOLD = 5; //最多只能打印50个数
+    private static final int THRESHOLD = 5; //最多一次性打印5个数
     private int start;
     private int end;
 

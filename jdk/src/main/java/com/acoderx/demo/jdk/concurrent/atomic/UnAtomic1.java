@@ -1,4 +1,4 @@
-package com.acoderx.demo.jdk.atomic;
+package com.acoderx.demo.jdk.concurrent.atomic;
 
 /**
  * Created by xudi on 17-4-13.

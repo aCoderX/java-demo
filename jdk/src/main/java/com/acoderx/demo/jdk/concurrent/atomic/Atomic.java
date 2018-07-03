@@ -1,4 +1,4 @@
-package com.acoderx.demo.jdk.atomic;
+package com.acoderx.demo.jdk.concurrent.atomic;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
