@@ -34,7 +34,7 @@ import java.util.concurrent.Executors;
  * ForkJoinWorkerThread 用于ForkJoinPool的线程
  *
  */
-public class Main {
+public class PoolMain {
     public static void main(String[] args){
         ExecutorService service = Executors.newFixedThreadPool(4);
         service.execute(()->{
