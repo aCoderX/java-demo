@@ -21,6 +21,10 @@ public class DistributedLock {
         long res = System.currentTimeMillis() - Long.valueOf(lastUnix);
         return res>INTERVALTIME;
     }
+    // TODO 存在问题
+    //1. 由于是客户端自己生成过期时间，所以需要强制要求分布式下每个客户端的时间必须同步。
+    //2. 当锁过期的时候，如果多个客户端同时执行jedis.getSet()方法，那么虽然最终只有一个客户端可以加锁，但是这个客户端的锁的过期时间可能被其他客户端覆盖。
+    // 3. 锁不具备拥有者标识，即任何客户端都可以解锁。
     public static void tryLock(String key, Runnable runnable){
         Jedis jedis = jedisPool.getResource();
         try {
