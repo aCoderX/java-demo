@@ -1,16 +1,19 @@
 package com.acoderx.demo.jdk.reflect;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by xudi on 17-6-5.
  */
-public class ReflectUser {
+public class ReflectUser<T> {
     private int id;
     private String name;
     private String phone;
     private int age;
     private Date birthday;
+    private T t;
+    private List<String> list;
 
     public int getId() {
         return id;
