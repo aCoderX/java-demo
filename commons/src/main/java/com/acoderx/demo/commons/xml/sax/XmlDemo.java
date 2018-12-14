@@ -1,4 +1,4 @@
-package com.acoderx.demo.commons.sax;
+package com.acoderx.demo.commons.xml.sax;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
