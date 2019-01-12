@@ -146,6 +146,18 @@
             <artifactId>mockserver-netty</artifactId>
             <version>5.5.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-core</artifactId>
+            <version>1.0-groovy-2.4</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.4.3</version>
+        </dependency>
     </dependencies>
     <!--在打包时将maven变量配置进配置文件-->
     <build>
