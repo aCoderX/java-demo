@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 /**
  * Created by xudi on 17-6-8.
  */
-public class SteamDemo {
+public class StreamDemo {
     public static void main(String args[]){
         //流操作
         Stream<Integer> stream = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 8, 8);
