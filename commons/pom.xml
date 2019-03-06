@@ -158,6 +158,12 @@
             <artifactId>groovy-all</artifactId>
             <version>2.4.3</version>
         </dependency>
+        <dependency>
+            <groupId>org.javatuples</groupId>
+            <artifactId>javatuples</artifactId>
+            <version>1.2</version>
+        </dependency>
+
     </dependencies>
     <!--在打包时将maven变量配置进配置文件-->
     <build>
