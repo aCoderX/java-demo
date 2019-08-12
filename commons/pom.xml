@@ -163,6 +163,11 @@
             <artifactId>javatuples</artifactId>
             <version>1.2</version>
         </dependency>
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-core</artifactId>
+            <version>3.1.2.RELEASE</version>
+        </dependency>
 
     </dependencies>
     <!--在打包时将maven变量配置进配置文件-->
