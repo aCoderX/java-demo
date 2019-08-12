@@ -1,10 +1,5 @@
 package com.acoderx.demo.jdk.reflect;
 
-import sun.misc.ProxyGenerator;
-
-import java.io.FileOutputStream;
-import java.io.IOException;
-
 /**
  * Created by xudi on 2017/11/20.
  */
@@ -19,7 +14,7 @@ public class ProxyUtil {
         // 第二种方法
 
         // 获取代理类的字节码
-        byte[] classFile = ProxyGenerator.generateProxyClass("$Proxy0", ProxyServiceImpl.class.getInterfaces());
+/*        byte[] classFile = ProxyGenerator.generateProxyClass("$Proxy0", ProxyServiceImpl.class.getInterfaces());
 
         FileOutputStream out = null;
 
@@ -35,6 +30,6 @@ public class ProxyUtil {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+        }*/
     }
 }
