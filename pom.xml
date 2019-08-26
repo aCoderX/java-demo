@@ -9,6 +9,7 @@
     <module>commons</module>
     <module>jdk</module>
     <module>frame</module>
+      <module>agent-demo</module>
   </modules>
   <packaging>pom</packaging>
 
