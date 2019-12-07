@@ -27,7 +27,7 @@
         <version.metrics>4.0.2</version.metrics>
         <version.druid>1.1.9</version.druid>
         <version.mysql.jdbc>6.0.6</version.mysql.jdbc>
-        <version.mysql.c3p0>0.9.5.2</version.mysql.c3p0>
+        <version.mysql.c3p0>0.9.5.4</version.mysql.c3p0>
         <version.netty>4.1.25.Final</version.netty>
         <version.mockito>1.10.19</version.mockito>
     </properties>
