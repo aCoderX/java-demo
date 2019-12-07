@@ -1,5 +1,7 @@
-package com.acoderx.demo.commons.spock
+package com.acoderx.demo.commons.test.spock
 
+import com.acoderx.demo.commons.test.SubClass
+import com.acoderx.demo.commons.test.Sum
 import spock.lang.Specification
 
 class SumTest extends Specification {

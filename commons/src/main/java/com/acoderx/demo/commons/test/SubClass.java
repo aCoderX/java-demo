@@ -1,4 +1,4 @@
-package com.acoderx.demo.commons.spock;
+package com.acoderx.demo.commons.test;
 
 import java.util.Random;
 

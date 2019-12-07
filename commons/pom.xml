@@ -29,6 +29,7 @@
         <version.mysql.jdbc>6.0.6</version.mysql.jdbc>
         <version.mysql.c3p0>0.9.5.2</version.mysql.c3p0>
         <version.netty>4.1.25.Final</version.netty>
+        <version.mockito>1.10.19</version.mockito>
     </properties>
 
     <dependencies>
@@ -40,6 +41,13 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${version.mockito}</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
